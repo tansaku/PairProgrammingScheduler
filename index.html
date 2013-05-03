@@ -1,0 +1,37 @@
+<html>
+<head>
+	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css">
+	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+    $('#date').datepicker();
+  });
+  </script>
+</head>
+<body>
+	<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Who's Available</a></li>
+    <li><a href="#tabs-2">Enter Your Availability</a></li>
+    <li><a href="#tabs-3">About</a></li>
+  </ul>
+  <div id="tabs-1">
+  <ul>
+    <li><a href="#">John</a></li>
+    <li><a href="#">Bert</a></li>
+    <li><a href="#">Fred</a></li>
+  </ul>
+  </div>
+  <div id="tabs-2">
+    <p>When can you pair program?</p>
+    <input type="text" name="date" id="date">
+  </div>
+  <div id="tabs-3">
+    <p>Never program alone again, ever.</p>
+  </div>
+</div>
+
+</body>
+</html>
