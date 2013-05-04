@@ -1,16 +1,24 @@
 <html>
 <head>
 	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css">
-	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <link rel='stylesheet' type='text/css' href='lib/fullcalendar-1.6.1/fullcalendar/fullcalendar.css' />
+  <script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <script type='text/javascript' src='lib/fullcalendar-1.6.1/fullcalendar/fullcalendar.js'></script>
   <script>
   $(function() {
     $( "#tabs" ).tabs();
     $('#date').datepicker();
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        defaultView: 'agendaWeek'
+    })
+    $('h1').wrap('<div id="bdy" class="ui-widget ui-widget-content">');
   });
   </script>
 </head>
 <body>
+	<h1>&nbsp;Pair Programming Scheduler</h1>
 	<div id="tabs">
   <ul>
     <li><a href="#tabs-1">Who's Available</a></li>
@@ -23,6 +31,7 @@
     <li><a href="#">Bert</a></li>
     <li><a href="#">Fred</a></li>
   </ul>
+  <div id='calendar'></div>
   </div>
   <div id="tabs-2">
     <p>When can you pair program?</p>
