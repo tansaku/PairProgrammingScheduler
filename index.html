@@ -6,7 +6,7 @@
 	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <script type='text/javascript' src='lib/fullcalendar-1.6.1/fullcalendar/fullcalendar.js'></script>
   <script type='text/javascript' src='lib/fullcalendar-1.6.1/fullcalendar/gcal.js'></script>
-   <script type='text/javascript' src='https://bitbucket.org/pellepim/jstimezonedetect/raw/f9e3e30e1e1f53dd27cd0f73eb51a7e7caf7b378/jstz.min.js'></script>
+   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js'></script>
   <script>
   $(function() {
      var timezone = jstz.determine();
@@ -33,8 +33,7 @@
             {
                 backgroundColor: 'red',
                 url: "https://www.google.com/calendar/feeds/j2h365llv5mdjtuplrrrqko4dg%40group.calendar.google.com/public/basic",
-                currentTimezone: timezone.name()
-                
+                currentTimezone: timezone.name()  
             },
             // Marian's PP availability
             {
