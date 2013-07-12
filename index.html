@@ -17,6 +17,12 @@
         defaultView: 'agendaWeek',
         ignoreTimezone: false,
         eventSources: [
+            // Dan's PP availability
+            {
+                backgroundColor: 'yellow',
+                url: "https://www.google.com/calendar/feeds/vf7cfhpnghp51o3c87pq5ktdf8%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
             // Juan's PP availability
             {
                 backgroundColor: 'light-blue',
