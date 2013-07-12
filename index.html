@@ -1,37 +1,156 @@
 <html>
 <head>
 	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css">
-	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <link rel='stylesheet' type='text/css' href='lib/fullcalendar-1.6.1/fullcalendar/fullcalendar.css' />
+  <script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <script type='text/javascript' src='lib/fullcalendar-1.6.1/fullcalendar/fullcalendar.js'></script>
+  <script type='text/javascript' src='lib/fullcalendar-1.6.1/fullcalendar/gcal.js'></script>
+   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js'></script>
   <script>
   $(function() {
+     var timezone = jstz.determine();
     $( "#tabs" ).tabs();
     $('#date').datepicker();
+    $('#calendar').fullCalendar({
+        theme: true,
+        defaultView: 'agendaWeek',
+        ignoreTimezone: false,
+        eventSources: [
+            // Dan's PP availability
+            {
+                backgroundColor: 'yellow',
+                url: "https://www.google.com/calendar/feeds/vf7cfhpnghp51o3c87pq5ktdf8%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // Juan's PP availability
+            {
+                backgroundColor: 'light-blue',
+                url: "https://www.google.com/calendar/feeds/0q1akp21rnc1p2lnnp1h0kahj8%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+           // Pavel's PP availability
+            {
+                backgroundColor: 'green',
+                url: "https://www.google.com/calendar/feeds/g8ejrf4tqifkvupkbhg2r5iv94%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+           // Sam's PP availability
+            {
+                backgroundColor: 'red',
+                url: "https://www.google.com/calendar/feeds/j2h365llv5mdjtuplrrrqko4dg%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()  
+            },
+            // Marian's PP availability
+            {
+                backgroundColor: 'orange',
+                url: "https://www.google.com/calendar/feeds/f067l44dm6s014tcmnu7dn5lj4%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+      			// TJ's PP availability
+            {
+                backgroundColor: 'blue',
+                url: "https://www.google.com/calendar/feeds/7ppdh4cd53gv54id301ga1jsq4%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // Adil's Availability
+            {
+                backgroundColor: 'brown',
+                url: "https://www.google.com/calendar/feeds/kkr82kte0h5n8dr50lq6issak4%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // Conor's Availability
+            {
+                backgroundColor: 'cyan',
+                url: "https://www.google.com/calendar/feeds/f8t4baj84mglbveib3sglab2qc%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // Risa's Availability
+            {
+                backgroundColor: 'pink',
+                url: "https://www.google.com/calendar/feeds/uj2q9nn8ea0hppg44nf4khp0bs%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // David C's Availability
+            {
+                backgroundColor: 'magenta',
+                url: "https://www.google.com/calendar/feeds/s3m8fae5msba5k4t4o4g7h7qa0%40group.calendar.google.com/public/basic",
+                currentTimezone: timezone.name()
+            },
+            // Marcelo's Availability
+            {
+                backgroundColor: 'white',
+                url: "https://www.google.com/calendar/feeds/leopark647%40gmail.com/public/basic",
+                currentTimezone: timezone.name()
+            }  
+
+            
+
+
+     
+        ],
+        //events: 'https://www.google.com/calendar/feeds/j2h365llv5mdjtuplrrrqko4dg%40group.calendar.google.com/public/basic',
+        eventClick: function(event) {
+          // opens events in a popup window
+          window.open(event.url, 'gcalevent', 'width=700,height=600');
+          return false;
+        },
+        
+        loading: function(bool) {
+          if (bool) {
+            $('#loading').show();
+          }else{
+            $('#loading').hide();
+          }
+        }
+    })
+    $('h1').wrap('<div id="bdy" class="ui-widget ui-widget-content">');
   });
   </script>
+  <style>
+    body {
+      font-size: 13px;
+      font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+      }
+
+    #calendar {
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+      }
+  </style>
 </head>
 <body>
+	<h1>&nbsp;Pair Programming Scheduler</h1>
 	<div id="tabs">
   <ul>
-    <li><a href="#tabs-1">Who's Available</a></li>
-    <li><a href="#tabs-2">Enter Your Availability</a></li>
-    <li><a href="#tabs-3">About</a></li>
+    <li><a href="#tabs-1">When are people Available?</a></li>
+    <li><a href="#tabs-2">Who's Available?</a></li>
+    <li><a href="#tabs-3">Enter Your Availability</a></li>
+    <li><a href="#tabs-4">About</a></li>
   </ul>
   <div id="tabs-1">
-  <ul>
-    <li><a href="#">John</a></li>
-    <li><a href="#">Bert</a></li>
-    <li><a href="#">Fred</a></li>
-  </ul>
+    <h2>&nbsp;The descriptions of each event should have email and skype contact details for the programmer</h2>
+    <div id='calendar'></div>
   </div>
   <div id="tabs-2">
-    <p>When can you pair program?</p>
-    <input type="text" name="date" id="date">
+    <ul>
+      <li><a href="http://github.com/juanoliver"><img src="https://secure.gravatar.com/avatar/244b187ea472d9024f6b8988ac88289b?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="http://github.com/tansaku">Juan</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+      <li><a href="http://github.com/sol1dus"><img src="https://secure.gravatar.com/avatar/5bb61a5719028d747decb57a72ea5ec7?s=140&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="http://github.com/tansaku">Pavel</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+      <li><a href="http://github.com/tansaku"><img src="https://secure.gravatar.com/avatar/9249736dae1898d537770886061c06f9?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="http://github.com/tansaku">Sam</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+      <li><a href="http://github.com/marianmosley"><img src="https://secure.gravatar.com/avatar/e555a310ba6c1b5e95a8cc783f7aec91?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="http://github.com/marianmosley">Marian</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+      <li><a href="https://github.com/tjmonsi"><img src="https://secure.gravatar.com/avatar/4aef6e7af5f727f36e577370ed2ded66?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="https://github.com/tjmonsi">TJ</a> is interested in JavaScript, JQuery, CSS, HTML, Python</li>
+      <li><a href="https://github.com/warlck"><img src="https://secure.gravatar.com/avatar/067af4831f14ca03e33a9a460e1aa8c4?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="https://github.com/warlck">Adil</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+     <li><a href="https://github.com/akston"><img src="https://secure.gravatar.com/avatar/9a6b8b171a3a426766e48d307e074b93?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" height="64" width="64"></a>&nbsp;<a href="https://github.com/akston">Conor</a> is interested in Ruby, Rails, JavaScript, JQuery, CSS, HTML</li>
+    </ul>
   </div>
   <div id="tabs-3">
-    <p>Never program alone again, ever.</p>
+    <p>To let us know when you can pair program, create a *public* Google Calendar with your availability and email the xml feed to <a href="mailto:tansaku@gmail.com">tansaku@gmail.com</a></p>
+  </div>
+  <div id="tabs-4">
+    <p>Never program alone again, ever.  Unless you really want to :-)</p>
   </div>
 </div>
-
 </body>
 </html>
+
