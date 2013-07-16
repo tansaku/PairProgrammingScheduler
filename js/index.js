@@ -7,6 +7,13 @@ $(document).ready(function() {
     defaultView: 'agendaWeek',
     ignoreTimezone: false,
     eventSources: [
+    // Sampriti's PP availability
+    {
+      backgroundColor: 'cyan',
+      url: "https://www.google.com/calendar/feeds/6q6bjn98aqs9kqom53tk125dp0%40group.calendar.google.com/public/basic",
+      currentTimezone: timezone.name()
+    },
+    // Dan's PP availability
       {
       backgroundColor: 'yellow',
       url: "https://www.google.com/calendar/feeds/vf7cfhpnghp51o3c87pq5ktdf8%40group.calendar.google.com/public/basic",
@@ -36,24 +43,24 @@ $(document).ready(function() {
       url: "https://www.google.com/calendar/feeds/f067l44dm6s014tcmnu7dn5lj4%40group.calendar.google.com/public/basic",
       currentTimezone: timezone.name()
     },
-    // TJ's PP availability
-    {
-      backgroundColor: 'blue',
-      url: "https://www.google.com/calendar/feeds/7ppdh4cd53gv54id301ga1jsq4%40group.calendar.google.com/public/basic",
-      currentTimezone: timezone.name()
-    },
+    // TJ's PP availability - no word from him recenlty
+    //{
+    // backgroundColor: 'blue',
+    //  url: "https://www.google.com/calendar/feeds/7ppdh4cd53gv54id301ga1jsq4%40group.calendar.google.com/public/basic",
+    //  currentTimezone: timezone.name()
+    //},
     // Adil's Availability
     {
       backgroundColor: 'brown',
       url: "https://www.google.com/calendar/feeds/kkr82kte0h5n8dr50lq6issak4%40group.calendar.google.com/public/basic",
       currentTimezone: timezone.name()
     },
-    // Conor's Availability
-    {
-      backgroundColor: 'cyan',
-      url: "https://www.google.com/calendar/feeds/f8t4baj84mglbveib3sglab2qc%40group.calendar.google.com/public/basic",
-      currentTimezone: timezone.name()
-    },
+    // Conor's Availability - no word from him recently
+    //{
+    //  backgroundColor: 'cyan',
+    //  url: "https://www.google.com/calendar/feeds/f8t4baj84mglbveib3sglab2qc%40group.calendar.google.com/public/basic",
+    //  currentTimezone: timezone.name()
+    //},
     // Risa's Availability
     {
       backgroundColor: 'pink',
