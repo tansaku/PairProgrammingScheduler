@@ -7,6 +7,12 @@ $(document).ready(function() {
     defaultView: 'agendaWeek',
     ignoreTimezone: false,
     eventSources: [
+    // Michael's availability
+    {
+      backgroundColor: 'blue',
+      url: "https://www.google.com/calendar/feeds/tol7n1s41u5enta612hibravrk%40group.calendar.google.com/public/basic",
+      currentTimezone: timezone.name()
+    },
     // Sampriti's PP availability
     {
       backgroundColor: 'cyan',
