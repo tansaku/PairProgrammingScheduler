@@ -7,6 +7,12 @@ $(document).ready(function() {
     defaultView: 'agendaWeek',
     ignoreTimezone: false,
     eventSources: [
+    // Joe's availability
+    {
+      backgroundColor: 'purple',
+      url: "https://www.google.com/calendar/feeds/nkevicj85aeq8hmo5hrtqirc3k%40group.calendar.google.com/public/basic",
+      currentTimezone: timezone.name()
+    },
     // Michael's availability
     {
       backgroundColor: 'blue',
