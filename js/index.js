@@ -90,6 +90,12 @@ $(document).ready(function() {
       backgroundColor: 'white',
       url: "https://www.google.com/calendar/feeds/leopark647%40gmail.com/public/basic",
       currentTimezone: timezone.name()
+    },
+    // Roman's Availability
+    {
+      backgroundColor: 'rgb(122, 231, 191)',
+      url: "https://www.google.com/calendar/feeds/ahlvg3qcqff77bf5hkrpihj4gk%40group.calendar.google.com/public/basic",
+      currentTimezone: timezone.name()
     }],
 
     //events: 'https://www.google.com/calendar/feeds/j2h365llv5mdjtuplrrrqko4dg%40group.calendar.google.com/public/basic',
